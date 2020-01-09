@@ -59,7 +59,7 @@ mix.copy(gentelella_home + 'build/css/custom.css',
     copy(gentelella_vendor + 'moment/moment.js',
         public_js + 'moment.js').
     copy(gentelella_vendor + 'bootstrap-daterangepicker/daterangepicker.css',
-    public_css + 'bootstrap-daterangepicker.css').
+        public_css + 'bootstrap-daterangepicker.css').
     copy(gentelella_vendor + 'bootstrap-daterangepicker/daterangepicker.js',
         public_js + 'bootstrap-daterangepicker.js').
     copy(gentelella_vendor + 'chart.js/dist/Chart.js',
@@ -131,8 +131,8 @@ mix.copy(gentelella_home + 'build/css/custom.css',
     copy(gentelella_vendor +
         'datatables.net-scroller-bs/css/scroller.bootstrap.css',
         public_css + 'scroller.bootstrap.css').
-    copy(gentelella_vendor + 'datatables.net/js/jquery.dataTables.js',
-        public_js + 'jquery.dataTables.js').
+    copy(gentelella_vendor + 'datatables.net/js/jquery.dataTables.min.js',
+        public_js + 'jquery.dataTables.min.js').
     copy(gentelella_vendor + 'datatables.net-bs/js/dataTables.bootstrap.js',
         public_js + 'dataTables.bootstrap.js').
     copy(gentelella_vendor + 'datatables.net-buttons/js/dataTables.buttons.js',
@@ -171,4 +171,10 @@ mix.copy(gentelella_home + 'build/css/custom.css',
     copy(gentelella_vendor + 'iCheck/skins/flat/green@2x.png',
         public_css + 'green@2x.png').
     copy(gentelella_vendor + 'iCheck/icheck.js',
-        public_js + 'icheck.js')
+        public_js + 'icheck.js').
+    copy(gentelella_vendor + 'jszip/dist/jszip.min.js',
+        public_js + 'jszip.min.js').
+    copy(gentelella_vendor + 'pdfmake/build/pdfmake.min.js',
+        public_js + 'pdfmake.min.js').
+    copy(gentelella_vendor + 'pdfmake/build/vfs_fonts.js',
+        public_js + 'vfs_fonts.js')

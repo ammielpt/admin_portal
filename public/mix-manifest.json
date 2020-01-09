@@ -42,7 +42,7 @@
     "/css/fixedheader.bootstrap.css": "/css/fixedheader.bootstrap.css",
     "/css/responsive.bootstrap.css": "/css/responsive.bootstrap.css",
     "/css/scroller.bootstrap.css": "/css/scroller.bootstrap.css",
-    "/js/jquery.dataTables.js": "/js/jquery.dataTables.js",
+    "/js/jquery.dataTables.min.js": "/js/jquery.dataTables.min.js",
     "/js/dataTables.bootstrap.js": "/js/dataTables.bootstrap.js",
     "/js/dataTables.buttons.js": "/js/dataTables.buttons.js",
     "/js/buttons.flash.js": "/js/buttons.flash.js",
@@ -58,5 +58,8 @@
     "/js/switchery.js": "/js/switchery.js",
     "/css/icheck-flat-green.css": "/css/icheck-flat-green.css",
     "/css/green@2x.png": "/css/green@2x.png",
-    "/js/icheck.js": "/js/icheck.js"
+    "/js/icheck.js": "/js/icheck.js",
+    "/js/jszip.min.js": "/js/jszip.min.js",
+    "/js/pdfmake.min.js": "/js/pdfmake.min.js",
+    "/js/vfs_fonts.js": "/js/vfs_fonts.js"
 }

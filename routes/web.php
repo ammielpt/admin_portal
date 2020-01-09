@@ -17,3 +17,5 @@ Route::get('/', function () {
 
 Route::view('/login', 'login');
 Route::view('/main', 'index')->name('redirect');
+Route::view('/noticias', 'noticias.lista_noticia')->name('noticias');
+Route::view('/noticias/nuevo', 'noticias.form_nuevo_noticia')->name('noticia.nuevo');
