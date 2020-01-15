@@ -177,4 +177,10 @@ mix.copy(gentelella_home + 'build/css/custom.css',
     copy(gentelella_vendor + 'pdfmake/build/pdfmake.min.js',
         public_js + 'pdfmake.min.js').
     copy(gentelella_vendor + 'pdfmake/build/vfs_fonts.js',
-        public_js + 'vfs_fonts.js')
+        public_js + 'vfs_fonts.js').
+        copy(gentelella_vendor + 'validator/validator.js',
+        public_js + 'validator.js').
+    copy(gentelella_vendor+'bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
+    public_js + 'bootstrap-datetimepicker.min.js').
+    copy(gentelella_vendor+'bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css',
+    public_css+'bootstrap-datetimepicker.css')

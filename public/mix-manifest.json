@@ -61,5 +61,8 @@
     "/js/icheck.js": "/js/icheck.js",
     "/js/jszip.min.js": "/js/jszip.min.js",
     "/js/pdfmake.min.js": "/js/pdfmake.min.js",
-    "/js/vfs_fonts.js": "/js/vfs_fonts.js"
+    "/js/vfs_fonts.js": "/js/vfs_fonts.js",
+    "/js/validator.js": "/js/validator.js",
+    "/js/bootstrap-datetimepicker.min.js": "/js/bootstrap-datetimepicker.min.js",
+    "/css/bootstrap-datetimepicker.css": "/css/bootstrap-datetimepicker.css"
 }
