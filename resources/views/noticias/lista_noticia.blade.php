@@ -64,7 +64,7 @@
                               <td>2011/04/25</td>
                               <td>$320,800</td>
                               <td>
-                                <a class="btn btn-warning" href="#">Editar</a>
+                                <a class="btn btn-warning" href="{{route('noticia.editar')}}">Editar</a>
                                 <a class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" href="#">Eliminar</a>
                               </td>
                             </tr>
