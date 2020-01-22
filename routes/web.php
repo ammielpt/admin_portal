@@ -10,13 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/login', 'login');
+Route::view('/logins', 'login')->name('login');
 Route::view('/main', 'index')->name('redirect');
 Route::view('/noticias', 'noticias.lista_noticia')->name('noticias');
 Route::view('/noticias/nuevo', 'noticias.form_nuevo_noticia')->name('noticia.nuevo');
 Route::view('/noticias/editar', 'noticias.form_edit_noticia')->name('noticia.editar');
+Auth::routes();
+Route::post('logout', function(){
+    Auth::logout();
+    return Redirect::to('login');
+})->name('logout');
+//Route::get('/home', 'HomeController@index')->name('home');

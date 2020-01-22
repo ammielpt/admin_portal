@@ -100,7 +100,7 @@
                         <span>Settings</span>
                       </a>
                   <a class="dropdown-item"  href="javascript:;">Help</a>
-                    <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    <a class="dropdown-item"  href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit()"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </div>
                 </li>
                 <li role="presentation" class="nav-item dropdown open">
@@ -172,6 +172,10 @@
           </div>
         </div>
         <!-- /top navigation -->
+      <form id="logout-form" method="POST" action="{{route('logout')}}" style="display:none">
+      @csrf
+      <button>Cerrar Sesion</button>
+      </form>
      @yield('content')
      <!-- footer content -->
      <footer>
