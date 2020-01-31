@@ -38,6 +38,7 @@ Route::delete('usuarios/{id}', 'UsersController@destroy')->name('usuarios.destro
 
 //Roles
 Route::get('roles', 'RolesController@index')->name('roles.index');
+Route::get('roles/crear', 'RolesController@create')->name('roles.create');
 Route::get('roles/{id}/editar', 'RolesController@edit')->name('roles.edit');
 Route::put('roles/{id}', 'RolesController@update')->name('roles.update');
 Route::post('roles/{id}', 'RolesController@store')->name('roles.store');
