@@ -1,4 +1,4 @@
-    @extends('layout')
+@extends('layout')
     @section('dependantshead')
     <!-- Bootstrap -->
     <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
@@ -29,7 +29,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Nuevo Rol</h3>
+                <h3>Nuevo Usuario</h3>
               </div>
             </div>
             <div class="clearfix"></div>
@@ -45,15 +45,13 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" 
-                    method="post" action="{{route('roles.store')}}">
-                      @csrf
-                      @include('roles.form')
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                      @include('users.form')
                       <div class="ln_solid"></div>
                       <div class="item form-group">
                         <div class="col-md-6 col-sm-6 offset-md-3">
-                          <a href="{{route('roles.index')}}" class="btn btn-danger" type="button">Cancelar</a>
-						                <button class="btn btn-primary" type="reset">Limpiar</button>
+                          <a href="{{route('noticias')}}" class="btn btn-danger" type="button">Cancelar</a>
+						  <button class="btn btn-primary" type="reset">Limpiar</button>
                           <button type="submit" class="btn btn-success">Guardar</button>
                         </div>
                       </div>

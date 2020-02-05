@@ -56,7 +56,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-fix"></i> Perfiles <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{route('usuarios.index')}}">Usuarios</a></li>
+                      <li><a href="{{route('usuario.index')}}">Usuarios</a></li>
                       <li><a href="{{route('roles.index')}}">Roles</a></li>
                   </li>
                 </ul>

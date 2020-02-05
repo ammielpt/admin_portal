@@ -46,6 +46,7 @@
                   <div class="x_content">
                     <br />
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                     @csrf
                       @include('roles.form')
                       <div class="ln_solid"></div>
                       <div class="item form-group">
