@@ -1,8 +1,11 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import "~font-awesome/scss/font-awesome.scss";
+// install font awesome
+// yarn add font-awesome @import "~font-awesome/scss/font-awesome";
+//in you mix file: .copy('node_modules/font-awesome/fonts',
+//'public/fonts')

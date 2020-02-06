@@ -31,9 +31,9 @@ Route::view('/noticias/editar', 'noticias.form_edit_noticia')->name('noticia.edi
 //Usuarios
 Route::get('usuarios', 'UsersController@index')->name('usuario.index');
 Route::get('usuarios/crear', 'UsersController@create')->name('usuario.create');
+Route::post('usuarios', 'UsersController@store')->name('usuario.store');
 Route::get('usuarios/{id}/editar', 'UsersController@edit')->name('usuario.edit');
 Route::put('usuarios/{id}', 'UsersController@update')->name('usuario.update');
-Route::post('usuarios/{id}', 'UsersController@store')->name('usuario.store');
 Route::post('usuarios/{id}', 'UsersController@show')->name('usuario.show');
 Route::delete('usuarios/{id}', 'UsersController@destroy')->name('usuario.destroy');
 

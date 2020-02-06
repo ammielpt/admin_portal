@@ -45,7 +45,9 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"
+                    method="POST" enctype="multipart/form-data" action="{{route('usuario.store')}}">
+                      @csrf
                       @include('users.form')
                       <div class="ln_solid"></div>
                       <div class="item form-group">

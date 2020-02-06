@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UsersController extends Controller
 {
@@ -36,6 +37,13 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //
+        request()->validate([
+            "file_avatar"=>"image",
+            "user_name" => "required",
+            "user_mail" => "required|email",
+            "user_pass"=>"required|confirmed"
+        ]);
+        return $request->all();
     }
 
     /**
