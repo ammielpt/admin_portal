@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Categoria;
 
 class CategoriasController extends Controller
 {
@@ -13,7 +14,8 @@ class CategoriasController extends Controller
      */
     public function index()
     {
-        return view('categorias.index');
+        $categorias= Categoria::all();
+        return view('categorias.index', compact('categorias'));
     }
 
     /**
@@ -24,6 +26,8 @@ class CategoriasController extends Controller
     public function create()
     {
         //
+        $categoria= new Categoria();
+        return view('categorias.form_nuevo', compact('categoria'));
     }
 
     /**
@@ -35,6 +39,18 @@ class CategoriasController extends Controller
     public function store(Request $request)
     {
         //
+        request()->validate([
+            'categoria_nombre'=>'required'
+        ]);
+        if($request->categoria_activo=='on'){
+            $request->categoria_activo=1;
+        }
+        Categoria::create([
+            'categoria_nombre'=>$request->get('categoria_nombre'),
+            'categoria_descripcion'=>$request->get('categoria_descripcion'),
+            'categoria_activo'=>$request->categoria_activo
+        ]);
+        return redirect()->route('categoria.index');
     }
 
     /**
@@ -57,6 +73,9 @@ class CategoriasController extends Controller
     public function edit($id)
     {
         //
+       $categoria= Categoria::findOrFail($id);
+       return view('categorias.form_editar', compact('categoria'));
+        
     }
 
     /**
@@ -69,6 +88,17 @@ class CategoriasController extends Controller
     public function update(Request $request, $id)
     {
         //
+        return $request->all();
+        $categoria= Categoria::findOrFail($id);
+        request()->validate([
+            'categoria_nombre'=>'required'
+        ]);
+        $categoria->update([
+            'categoria_nombre'=>$request->get('categoria_nombre'),
+            'categoria_descripcion'=>$request->get('categoria_descripcion'),
+            'categoria_activo'=>$request->categoria_activo
+        ]);
+        return redirect()->route('categoria.index');
     }
 
     /**

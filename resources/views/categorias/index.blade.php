@@ -49,14 +49,32 @@
                         <tr>
                           <th>Codigo</th>
                           <th>Nombre</th>
-                          <th>Nombre Corto</th>
-                          <th>Descripcion</th>                             
+                          <th>Descripcion</th>
+                          <th>Activo</th>                             
                           <th>Fecha Registro</th>
                           <th>Actualiza Registro</th>
                           <th>Acciones</th>
                         </tr>
                       </thead>
                       <tbody>
+                      @foreach ($categorias as $categoria)
+                      <tr>
+                          <td>{{$categoria->id}}</td>
+                          <td>{{$categoria->categoria_nombre}}</td>
+                          <td>{{$categoria->categoria_descripcion}}</td>
+                          @if ($categoria->categoria_activo)
+                          <td><span class="badge badge-success">Si</span></td>
+                          @else
+                          <td><span class="badge badge-danger">No</span></td>
+                          @endif
+                          <td>{{$categoria->created_at}}</td>
+                          <td>{{$categoria->updated_at}}</td>
+                          <td>
+                          <a class="btn btn-warning" href="{{route('categoria.edit',$categoria->id)}}">Editar</a>
+                          <a class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" href="#">Eliminar</a>
+                          </td>
+                      </tr>
+                      @endforeach
                       </tbody>
                     </table>
                   </div>

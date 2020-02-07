@@ -21,6 +21,9 @@ Route::get('/', function () {
 //    'role_id'=>1
 //]);
 
+Route::get('/', function(){
+    return redirect()->route('login');
+});
 //Noticias
 Route::view('/logins', 'login')->name('login');
 Route::view('/main', 'index')->name('redirect');
