@@ -46,15 +46,15 @@
                   <div class="x_content">
                     <br />
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"
-                    method="POST" enctype="multipart/form-data" action="{{route('usuario.update')}}">
+                    method="POST" enctype="multipart/form-data" action="{{route('usuario.update',$user->id)}}">
                     {!!method_field('PUT')!!}
                       @csrf
                       @include('users.form')
                       <div class="ln_solid"></div>
                       <div class="item form-group">
                         <div class="col-md-6 col-sm-6 offset-md-3">
-                          <a href="{{route('noticias')}}" class="btn btn-danger" type="button">Cancelar</a>
-						  <button class="btn btn-primary" type="reset">Limpiar</button>
+                          <a href="{{route('usuario.index')}}" class="btn btn-danger" type="button">Cancelar</a>
+						                <button class="btn btn-primary" type="reset">Limpiar</button>
                           <button type="submit" class="btn btn-success">Guardar</button>
                         </div>
                       </div>

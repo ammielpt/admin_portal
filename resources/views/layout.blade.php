@@ -22,11 +22,11 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="{{asset('/images/img.jpg')}}" alt="..." class="img-circle profile_img">
+                <img src="{{Storage::url(Auth::user()->avatar)}}" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
-                <h2>John Doe</h2>
+                <h2>{{Auth::user()->name}}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -49,6 +49,11 @@
                       <li><a href="{{route('noticias')}}">Eventos</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-table"></i>Catalogos<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{route('categoria.index')}}">Categoria</a></li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
               <div class="menu_section">
@@ -57,7 +62,7 @@
                   <li><a><i class="fa fa-fix"></i> Perfiles <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{route('usuario.index')}}">Usuarios</a></li>
-                      <li><a href="{{route('roles.index')}}">Roles</a></li>
+                      <li><a href="{{route('rol.index')}}">Roles</a></li>
                   </li>
                 </ul>
               </div>
@@ -91,10 +96,10 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <img src="{{Storage::url(Auth::user()->avatar)}}" alt="">{{Auth::user()->name}}
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item"  href="javascript:;"> Profile</a>
+                    <a class="dropdown-item"   href="{{route('usuario.edit',Auth::user()->id)}}">Mi Perfil</a>
                       <a class="dropdown-item"  href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>
                         <span>Settings</span>

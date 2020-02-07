@@ -25,7 +25,7 @@
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h4>Usuarios</h4>         
+          <h4>Categorias</h4>
         </div>
       </div>
       <div class="clearfix"></div>
@@ -33,7 +33,7 @@
         <div class="col-md-12 col-sm-12 ">
           <div class="x_panel">
             <div class="x_title">
-              <a href="{{route('usuario.create')}}" class="btn btn-primary"><span class="fa fa-plus-circle text-white"></span><span class="text-white ml-1">Nuevo</span></a>
+              <a href="{{route('categoria.create')}}" class="btn btn-primary"><span class="fa fa-plus-circle text-white"></span><span class="text-white ml-1">Nuevo</span></a>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -48,29 +48,15 @@
                       <thead>
                         <tr>
                           <th>Codigo</th>
-                          <th>Foto</th>
                           <th>Nombre</th>
-                          <th>Email</th>                             
+                          <th>Nombre Corto</th>
+                          <th>Descripcion</th>                             
                           <th>Fecha Registro</th>
                           <th>Actualiza Registro</th>
                           <th>Acciones</th>
                         </tr>
                       </thead>
                       <tbody>
-                      @foreach ($users as $user)
-                        <tr>
-                          <td>{{$user->id}}</td>
-                          <td><img src="{{Storage::url($user->avatar)}}" class="rounded-circle" width="50" height="50" ></td>
-                          <td>{{$user->name}}</td>
-                          <td>{{$user->email}}</td>
-                          <td>{{$user->created_at}}</td>
-                          <td>{{$user->updated_at}}</td>
-                          <td>
-                            <a class="btn btn-warning" href="{{route('usuario.edit', $user->id)}}">Editar</a>
-                            <a class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" href="#">Eliminar</a>
-                          </td>
-                        </tr>
-                      @endforeach
                       </tbody>
                     </table>
                   </div>

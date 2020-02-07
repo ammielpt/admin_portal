@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Rol;
-use Illuminate\Support\Facades\Session;
 
-class RolesController extends Controller
+class CategoriasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +13,7 @@ class RolesController extends Controller
      */
     public function index()
     {
-        //
-        $roles= Rol::all();
-        return view('roles.index', compact('roles'));
+        return view('categorias.index');
     }
 
     /**
@@ -27,9 +23,7 @@ class RolesController extends Controller
      */
     public function create()
     {
-        //        
-        $rol= new Rol();
-        return view('roles.create', compact('rol'));
+        //
     }
 
     /**
@@ -41,16 +35,6 @@ class RolesController extends Controller
     public function store(Request $request)
     {
         //
-        request()->validate([
-            "rol_nombre" => "required",
-            "rol_nombre_clave" => "required"
-        ]);
-        Rol::create([
-            'rol_name'=>$request->get('rol_nombre'),
-            'rol_key_name'=>$request->get('rol_nombre_clave'),
-            'rol_description'=>$request->get('rol_description')
-        ]);
-        return redirect()->route('rol.index');
     }
 
     /**
@@ -73,8 +57,6 @@ class RolesController extends Controller
     public function edit($id)
     {
         //
-        $rol= Rol::findOrFail($id);
-        return view('roles.edit',compact('rol'));
     }
 
     /**
@@ -87,17 +69,6 @@ class RolesController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $rol= Rol::findOrFail($id);
-        request()->validate([
-            "rol_nombre" => "required",
-            "rol_nombre_clave" => "required"
-        ]);
-        $rol->update([
-            'rol_name'=>$request->get('rol_nombre'),
-            'rol_key_name'=>$request->get('rol_nombre_clave'),
-            'rol_description'=>$request->get('rol_description')
-        ]);
-        return redirect()->route('rol.index');
     }
 
     /**

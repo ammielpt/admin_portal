@@ -46,13 +46,13 @@
                   <div class="x_content">
                     <br />
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" 
-                    method="post" action="{{route('roles.store')}}">
+                    method="post" action="{{route('rol.store')}}">
                       @csrf
                       @include('roles.form')
                       <div class="ln_solid"></div>
                       <div class="item form-group">
                         <div class="col-md-6 col-sm-6 offset-md-3">
-                          <a href="{{route('roles.index')}}" class="btn btn-danger" type="button">Cancelar</a>
+                          <a href="{{route('rol.index')}}" class="btn btn-danger" type="button">Cancelar</a>
 						                <button class="btn btn-primary" type="reset">Limpiar</button>
                           <button type="submit" class="btn btn-success">Guardar</button>
                         </div>
@@ -66,7 +66,7 @@
         </div>
         <!-- /page content -->
         @endsection
-@section('dependantsfooter')
+  @section('dependantsfooter')
          <!-- jQuery -->
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <!-- Bootstrap -->
@@ -112,5 +112,5 @@
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
       });
-</script>
-    @endsection
+  </script>
+  @endsection

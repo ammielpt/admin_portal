@@ -33,7 +33,7 @@
         <div class="col-md-12 col-sm-12 ">
           <div class="x_panel">
             <div class="x_title">
-              <a href="{{route('roles.create')}}" class="btn btn-primary"><span class="fa fa-plus-circle text-white"></span><span class="text-white ml-1">Nuevo</span></a>
+              <a href="{{route('rol.create')}}" class="btn btn-primary"><span class="fa fa-plus-circle text-white"></span><span class="text-white ml-1">Nuevo</span></a>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -66,7 +66,7 @@
                              <td>{{$rol->created_at}}</td>
                              <td>{{$rol->updated_at}}</td>
                              <td>
-                              <a class="btn btn-warning" href="{{route('noticia.editar')}}">Editar</a>
+                              <a class="btn btn-warning" href="{{route('rol.edit',$rol->id)}}">Editar</a>
                               <a class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" href="#">Eliminar</a>
                              </td>
                           </tr>
