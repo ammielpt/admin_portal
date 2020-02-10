@@ -22,11 +22,15 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
+                @if(Auth::check())
                 <img src="{{Storage::url(Auth::user()->avatar)}}" alt="..." class="img-circle profile_img">
+                @endif
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
+                @if(Auth::check())
                 <h2>{{Auth::user()->name}}</h2>
+                @endif
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -45,8 +49,8 @@
                   </li>
                   <li><a><i class="fa fa-table"></i> Publicaciones <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{route('noticias')}}">Noticias</a></li>
-                      <li><a href="{{route('noticias')}}">Eventos</a></li>
+                      <li><a href="{{route('noticia.index')}}">Noticias</a></li>
+                      <li><a href="{{route('noticia.index')}}">Eventos</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i>Catalogos<span class="fa fa-chevron-down"></span></a>
@@ -96,10 +100,14 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                    @if(Auth::check())
                     <img src="{{Storage::url(Auth::user()->avatar)}}" alt="">{{Auth::user()->name}}
+                    @endif
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                    @if(Auth::check())
                     <a class="dropdown-item"   href="{{route('usuario.edit',Auth::user()->id)}}">Mi Perfil</a>
+                    @endif
                       <a class="dropdown-item"  href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>
                         <span>Settings</span>

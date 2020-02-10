@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categoria;
 use Illuminate\Http\Request;
 
 class NoticiasController extends Controller
@@ -14,6 +15,7 @@ class NoticiasController extends Controller
     public function index()
     {
         //
+        return view('noticias.index');
     }
 
     /**
@@ -24,6 +26,8 @@ class NoticiasController extends Controller
     public function create()
     {
         //
+        $categorias = Categoria::where('categoria_activo', config('constants.condicion.activo'))->get();
+        return view('noticias.form_nuevo', compact('categorias'));
     }
 
     /**

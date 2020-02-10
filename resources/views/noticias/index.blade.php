@@ -32,7 +32,7 @@
             <div class="col-md-12 col-sm-12 ">
               <div class="x_panel">
                 <div class="x_title">
-                  <a href="{{route('noticia.nuevo')}}" class="btn btn-primary"><span class="fa fa-plus-circle text-white"></span><span class="text-white ml-1">Nuevo</span></a>
+                  <a href="{{route('noticia.create')}}" class="btn btn-primary"><span class="fa fa-plus-circle text-white"></span><span class="text-white ml-1">Nuevo</span></a>
                   <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -64,7 +64,6 @@
                               <td>2011/04/25</td>
                               <td>$320,800</td>
                               <td>
-                                <a class="btn btn-warning" href="{{route('noticia.editar')}}">Editar</a>
                                 <a class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" href="#">Eliminar</a>
                               </td>
                             </tr>

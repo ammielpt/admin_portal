@@ -71,7 +71,7 @@
                           <td>{{$categoria->updated_at}}</td>
                           <td>
                           <a class="btn btn-warning" href="{{route('categoria.edit',$categoria->id)}}">Editar</a>
-                          <a class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" href="#">Eliminar</a>
+                          <a class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" href="#">Desactivar</a>
                           </td>
                       </tr>
                       @endforeach

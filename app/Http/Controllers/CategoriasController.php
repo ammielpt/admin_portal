@@ -14,7 +14,7 @@ class CategoriasController extends Controller
      */
     public function index()
     {
-        $categorias= Categoria::all();
+        $categorias = Categoria::all();
         return view('categorias.index', compact('categorias'));
     }
 
@@ -26,7 +26,8 @@ class CategoriasController extends Controller
     public function create()
     {
         //
-        $categoria= new Categoria();
+        $categoria = new Categoria();
+        $categoria->categoria_activo = config('constants.condicion.activo');
         return view('categorias.form_nuevo', compact('categoria'));
     }
 
@@ -40,15 +41,14 @@ class CategoriasController extends Controller
     {
         //
         request()->validate([
-            'categoria_nombre'=>'required'
+            'categoria_nombre' => 'required'
         ]);
-        if($request->categoria_activo=='on'){
-            $request->categoria_activo=1;
-        }
+        if (!$request->categoria_activo)
+            $request->merge(['categoria_activo' => config('constants.condicion.inactivo')]);
         Categoria::create([
-            'categoria_nombre'=>$request->get('categoria_nombre'),
-            'categoria_descripcion'=>$request->get('categoria_descripcion'),
-            'categoria_activo'=>$request->categoria_activo
+            'categoria_nombre' => $request->get('categoria_nombre'),
+            'categoria_descripcion' => $request->get('categoria_descripcion'),
+            'categoria_activo' => $request->get('categoria_activo')
         ]);
         return redirect()->route('categoria.index');
     }
@@ -73,9 +73,8 @@ class CategoriasController extends Controller
     public function edit($id)
     {
         //
-       $categoria= Categoria::findOrFail($id);
-       return view('categorias.form_editar', compact('categoria'));
-        
+        $categoria = Categoria::findOrFail($id);
+        return view('categorias.form_editar', compact('categoria'));
     }
 
     /**
@@ -88,15 +87,16 @@ class CategoriasController extends Controller
     public function update(Request $request, $id)
     {
         //
-        return $request->all();
-        $categoria= Categoria::findOrFail($id);
+        $categoria = Categoria::findOrFail($id);
         request()->validate([
-            'categoria_nombre'=>'required'
+            'categoria_nombre' => 'required'
         ]);
+        if (!$request->categoria_activo)
+            $request->merge(['categoria_activo' => config('constants.condicion.inactivo')]);
         $categoria->update([
-            'categoria_nombre'=>$request->get('categoria_nombre'),
-            'categoria_descripcion'=>$request->get('categoria_descripcion'),
-            'categoria_activo'=>$request->categoria_activo
+            'categoria_nombre' => $request->get('categoria_nombre'),
+            'categoria_descripcion' => $request->get('categoria_descripcion'),
+            'categoria_activo' => $request->get('categoria_activo')
         ]);
         return redirect()->route('categoria.index');
     }

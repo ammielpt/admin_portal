@@ -15,9 +15,12 @@
   </div>
 </div>
 <div class="item form-group">
-<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Activo <span class="required">*</span>
-  </label>
+<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Activo <span class="required">*</span></label>
   <div class="col-md-6 col-sm-6 ">
-    <input type="checkbox" id="categoria_activo" name="categoria_activo" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger">
+    @if($categoria->categoria_activo)
+    <input type="checkbox" id="categoria_activo" checked value="{{config('constants.condicion.activo')}}" name="categoria_activo" data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger">
+    @else
+    <input type="checkbox" id="categoria_activo" value="{{config('constants.condicion.activo')}}" name="categoria_activo" data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger">
+    @endif
   </div>
 </div>

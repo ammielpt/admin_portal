@@ -11,10 +11,9 @@
   <div class="col-md-6 col-sm-6 ">
     <select class="form-control" required="required">
       <option>Elige una opción</option>
-      <option>Feria</option>
-      <option>Tecnologia</option>
-      <option>Deporte</option>
-      <option>Gastronomia</option>
+      @foreach ($categorias as $categoria)
+      <option>{{$categoria->categoria_nombre}}</option>
+      @endforeach
     </select>
   </div>
 </div>                     

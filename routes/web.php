@@ -11,6 +11,7 @@
 |
 */
 use Illuminate\Support\Facades\Route;
+use Auth;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -27,9 +28,15 @@ Route::get('/', function(){
 //Noticias
 Route::view('/logins', 'login')->name('login');
 Route::view('/main', 'index')->name('redirect');
-Route::view('/noticias', 'noticias.lista_noticia')->name('noticias');
-Route::view('/noticias/nuevo', 'noticias.form_nuevo_noticia')->name('noticia.nuevo');
-Route::view('/noticias/editar', 'noticias.form_edit_noticia')->name('noticia.editar');
+
+//Noticias
+Route::get('noticias', 'NoticiasController@index')->name('noticia.index');
+Route::get('noticias/crear', 'NoticiasController@create')->name('noticia.create');
+Route::get('noticias/{id}/editar', 'NoticiasController@edit')->name('noticia.edit');
+Route::post('noticias', 'NoticiasController@store')->name('noticia.store');
+Route::put('noticias/{id}', 'NoticiasController@update')->name('noticia.update');
+Route::post('noticias/{id}', 'NoticiasController@show')->name('noticia.show');
+Route::delete('noticias/{id}', 'NoticiasController@destroy')->name('noticia.destroy');
 
 //Usuarios
 Route::get('usuarios', 'UsersController@index')->name('usuario.index');

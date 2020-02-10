@@ -110,13 +110,4 @@
 <!-- Custom Theme Scripts -->
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 <script src="{{asset('js/gentelella-custom.js')}}"></script> 
-<script>
-   // Add the following code if you want the name of the file appear on select
-  $("#btn-subm").on("submit", function() {
-    if($("#categoria_activo").val()==='on')
-        $("#categoria_activo").val(1);
-        else
-        $("#categoria_activo").val(0);
-  });
-</script>
 @endsection
