@@ -1,7 +1,7 @@
 <div class="item form-group">
-        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Titulo <span class="required">*</span>
+        <label class="col-form-label col-md-1 col-sm-3 label-align" for="first-name">Titulo <span class="required">*</span>
         </label>
-        <div class="col-md-6 col-sm-6 ">
+        <div class="col-md-9 col-sm-6 ">
           <input type="text" id="first-name" required="required" class="form-control ">
         </div>
 </div>    
@@ -9,8 +9,7 @@
   <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Categoría <span class="required">*</span>
   </label>
   <div class="col-md-6 col-sm-6 ">
-    <select class="form-control" required="required">
-      <option>Elige una opción</option>
+    <select class="form-control selectpicker" required="required" title="Seleccionar tags" data-live-search="true" multiple>
       @foreach ($categorias as $categoria)
       <option>{{$categoria->categoria_nombre}}</option>
       @endforeach

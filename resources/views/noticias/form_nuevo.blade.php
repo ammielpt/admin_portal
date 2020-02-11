@@ -21,6 +21,7 @@
      <!-- bootstrap-datetimepicker -->
     <link href="{{asset('css/bootstrap-datetimepicker.css')}}" rel="stylesheet">
     <!-- Custom Theme Style -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
     <link href="{{asset('css/gentelella-custom.css')}}" rel="stylesheet">
     @endsection
     @section('content')
@@ -97,6 +98,7 @@
     <!-- Autosize -->
     <script src="../vendors/autosize/dist/autosize.min.js"></script>
     <!-- jQuery autocomplete -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
     <script src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
     <!-- starrr -->
     <script src="../vendors/starrr/dist/starrr.js"></script>

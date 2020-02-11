@@ -11,7 +11,6 @@
 |
 */
 use Illuminate\Support\Facades\Route;
-use Auth;
 Route::get('/', function () {
     return view('welcome');
 });
