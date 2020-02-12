@@ -45,7 +45,10 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"
+                    method="POST" enctype="multipart/form-data" action="{{route('usuario.update',$noticia->id)}}">
+                     {!!method_field('PUT')!!}
+                      @csrf
                       @include('noticias.form')
                       <div class="ln_solid"></div>
                       <div class="item form-group">

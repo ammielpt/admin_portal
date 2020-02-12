@@ -56,17 +56,20 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td>Tiger Nixon</td>
-                              <td>System Architect</td>
-                              <td>Edinburgh</td>
-                              <td>61</td>
-                              <td>2011/04/25</td>
-                              <td>$320,800</td>
+                          @foreach ($noticias as $noticia)
+                              <tr>
+                              <td>{{$noticia->id}}</td>
+                              <td><img src="{{Storage::url($noticia->noticia_imagen)}}" width="50" height="50" ></td>
+                              <td>{{$noticia->noticia_titulo}}</td>
+                              <td>{{$noticia->noticia_descripcion}}</td>
+                              <td>{{$noticia->created_at}}</td>
+                              <td>{{$noticia->updated_at}}</td>
                               <td>
+                                <a class="btn btn-warning" href="{{route('noticia.edit',$noticia->id)}}">Editar</a>
                                 <a class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" href="#">Eliminar</a>
                               </td>
                             </tr>
+                          @endforeach
                           </tbody>
                         </table>
                       </div>

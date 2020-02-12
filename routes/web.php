@@ -34,7 +34,6 @@ Route::get('noticias/crear', 'NoticiasController@create')->name('noticia.create'
 Route::get('noticias/{id}/editar', 'NoticiasController@edit')->name('noticia.edit');
 Route::post('noticias', 'NoticiasController@store')->name('noticia.store');
 Route::put('noticias/{id}', 'NoticiasController@update')->name('noticia.update');
-Route::post('noticias/{id}', 'NoticiasController@show')->name('noticia.show');
 Route::delete('noticias/{id}', 'NoticiasController@destroy')->name('noticia.destroy');
 
 //Usuarios

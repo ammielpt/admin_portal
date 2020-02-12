@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Categoria;
+use App\Noticia;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class NoticiasController extends Controller
 {
@@ -15,7 +17,8 @@ class NoticiasController extends Controller
     public function index()
     {
         //
-        return view('noticias.index');
+        $noticias= Noticia::all();
+        return view('noticias.index', compact('noticias'));
     }
 
     /**
@@ -26,8 +29,9 @@ class NoticiasController extends Controller
     public function create()
     {
         //
+        $noticia= new Noticia();
         $categorias = Categoria::where('categoria_activo', config('constants.condicion.activo'))->get();
-        return view('noticias.form_nuevo', compact('categorias'));
+        return view('noticias.form_nuevo', compact('categorias','noticia'));
     }
 
     /**
@@ -38,7 +42,20 @@ class NoticiasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "noticia_titulo"=>"required",
+            "noticia_fecha_publiacion"=>"required",
+            "noticia_imagen"=>"required|image",
+            "noticia_descripcion"=>"required"
+        ]);
+        //$date = Carbon::parse($request->startFrom)->format('d-m-Y H:i:s');
+        Noticia::create([
+            "noticia_titulo"=>$request->get('noticia_titulo'),
+            "noticia_fecha_publicacion"=>Carbon::parse($request->get('noticia_fecha_publicacion'))->format('Y-m-d H:i:s'),
+            "noticia_imagen"=>$request->file('noticia_imagen')->store('public'),
+            "noticia_descripcion"=>$request->get('noticia_descripcion')
+        ]);
+            return redirect()->route('noticia.index');
     }
 
     /**

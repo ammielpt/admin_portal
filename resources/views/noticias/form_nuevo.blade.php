@@ -30,7 +30,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Nuevo</h3>
+                <h3>Nueva Noticia</h3>
               </div>
             </div>
             <div class="clearfix"></div>
@@ -46,7 +46,9 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"
+                      method="POST" enctype="multipart/form-data" action="{{route('noticia.store')}}">
+                      @csrf
                       @include('noticias.form')
                       <div class="ln_solid"></div>
                       <div class="item form-group">
