@@ -44,7 +44,7 @@ class NoticiasController extends Controller
     {
         request()->validate([
             "noticia_titulo"=>"required",
-            "noticia_fecha_publiacion"=>"required",
+            "noticia_fecha_publicacion"=>"required",
             "noticia_imagen"=>"required|image",
             "noticia_descripcion"=>"required"
         ]);
@@ -52,6 +52,7 @@ class NoticiasController extends Controller
         Noticia::create([
             "noticia_titulo"=>$request->get('noticia_titulo'),
             "noticia_fecha_publicacion"=>Carbon::parse($request->get('noticia_fecha_publicacion'))->format('Y-m-d H:i:s'),
+            "noticia_imagen_nombre"=>$request->file('noticia_imagen')->getClientOriginalName(),
             "noticia_imagen"=>$request->file('noticia_imagen')->store('public'),
             "noticia_descripcion"=>$request->get('noticia_descripcion')
         ]);
@@ -78,6 +79,9 @@ class NoticiasController extends Controller
     public function edit($id)
     {
         //
+        $noticia = Noticia::findOrFail($id);
+        $categorias=Categoria::all();
+        return view('noticias.form_editar',compact('noticia','categorias'));
     }
 
     /**

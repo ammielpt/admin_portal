@@ -2,7 +2,7 @@
         <label class="col-form-label col-2 col-md-1 label-align" for="first-name">Titulo <span class="required">*</span>
         </label>
         <div class="col-10 col-md-9">
-          <input type="text" id="noticia_titulo" name="noticia_titulo" required="required" values="{{old('noticia_titulo',$noticia->noticia_titulo)}}" class="form-control ">
+          <input type="text" id="noticia_titulo" name="noticia_titulo" required="required" value="{{old('noticia_titulo',$noticia->noticia_titulo)}}" class="form-control ">
         </div>
 </div>    
 <div class="item form-group row mb-3">
@@ -21,7 +21,7 @@
       <div class="controls">
         <div class="xdisplay_inputx form-group row has-feedback">
           <input type="text" class="form-control has-feedback-left" id="single_cal1"
-          name="noticia_fecha_publiacion" aria-describedby="inputSuccess2Status" value="{{old('noticia_fecha_publiacion',$noticia->noticia_fecha_publiacion)}}">
+          name="noticia_fecha_publicacion" aria-describedby="inputSuccess2Status" value="{{old('noticia_fecha_publicacion',$noticia->noticia_fecha_publicacion)}}">
           <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
           <span id="inputSuccess2Status" class="sr-only">(success)</span>
         </div>
@@ -34,7 +34,7 @@
   </label>
   <div class="col-10 col-md-9">
     <div class="custom-file">
-      <input type="file" class="custom-file-input" id="inputGroupFile02" name="noticia_imagen" value="{{old('noticia_imagen',$noticia->imagen)}}">
+      <input type="file" class="custom-file-input" id="inputGroupFile02" name="noticia_imagen">
       <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Elegir archivo</label>
     </div>
   </div>
