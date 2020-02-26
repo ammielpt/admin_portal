@@ -16,4 +16,8 @@ class Noticia extends Model
     protected $fillable = [
         'noticia_titulo', 'noticia_fecha_publicacion', 'noticia_imagen', 'noticia_imagen_nombre', 'noticia_descripcion'
     ];
+
+    public function categorias(){
+        return $this->belongsToMany(Categoria::class, 'noticia_categoria');
+    }
 }

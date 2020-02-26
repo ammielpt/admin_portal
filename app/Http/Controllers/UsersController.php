@@ -56,7 +56,6 @@ class UsersController extends Controller
         if($request->hasFile('file_avatar')){
             $user->avatar=$request->file('file_avatar')->store('public');
         }
-        $user->save();
         return redirect()->route('usuario.index');
     }
 
@@ -106,7 +105,7 @@ class UsersController extends Controller
         $user->update([
             'name'=>$request->get('user_name'),
             'email'=>$request->get('user_email'),
-            'password'=>Hash::make($request->get('user_pass')),
+            //'password'=>Hash::make($request->get('user_pass')),
             'role_id'=>1
         ]);
         return redirect()->route('usuario.index');

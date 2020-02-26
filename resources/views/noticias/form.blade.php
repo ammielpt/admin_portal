@@ -11,7 +11,7 @@
   <div class="col-10 col-md-4 ">
     <select class="form-control selectpicker" name="noticia_categorias[]" required="required" title="Seleccionar tags" data-live-search="true" multiple>
       @foreach ($categorias as $categoria)
-      <option>{{$categoria->categoria_nombre}}</option>
+      <option value="{{$categoria->id}}">{{$categoria->categoria_nombre}}</option>
       @endforeach
     </select>
   </div>
@@ -29,9 +29,15 @@
     </div>
   </div>
 </div>
+@if($noticia->noticia_imagen_nombre)
+<div class="item row form-group mb-1">
+<span class="col-md-1 col-1"></span>
+ <span class="col-md-2 col-2">{{$noticia->noticia_imagen_nombre}}</span>
+</div>
+@endif
 <div class="item form-group mb-3">
   <label class="col-form-label col-2 col-md-1 label-align">Imagen <span class="required">*</span>
-  </label>
+  </label>  
   <div class="col-10 col-md-9">
     <div class="custom-file">
       <input type="file" class="custom-file-input" id="inputGroupFile02" name="noticia_imagen">
