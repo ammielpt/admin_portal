@@ -83,7 +83,7 @@
     <!-- bootstrap-daterangepicker -->
     <script src="{{asset('js/moment.js')}}"></script>
     <script src="{{asset('js/bootstrap-daterangepicker.js')}}"></script>
-    <!-- bootstrap-datetimepicker -->    
+    <!-- bootstrap-datetimepicker -->
     <script src="{{asset('js/bootstrap-datetimepicker.min.js')}}"></script>
     <!-- bootstrap-wysiwyg -->
     <script src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
@@ -109,10 +109,15 @@
     <!-- Custom Theme Scripts -->
     <script src="{{asset('js/gentelella-custom.js')}}"></script> 
     <script>
+    $(document).ready(function(){
        // Add the following code if you want the name of the file appear on select
       $(".custom-file-input").on("change", function() {
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
       });
+      $("#single_cal1").datepicker({
+        format: "dd/mm/yyyy"
+      });
+    });
 </script>
     @endsection

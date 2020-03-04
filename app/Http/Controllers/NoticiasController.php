@@ -95,7 +95,25 @@ class NoticiasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // 
+        $noticia = Noticia::findOrFail($id);
+        if ($request->hasFile('noticia_imagen')) {
+            $noticia->update([
+                "noticia_titulo"=>$request->get('noticia_titulo'),
+                "noticia_fecha_publicacion"=>Carbon::parse($request->get('noticia_fecha_publicacion'))->format('Y-m-d H:i:s'),
+                "noticia_imagen_nombre"=>$request->file('noticia_imagen')->getClientOriginalName(),
+                "noticia_imagen"=>$request->file('noticia_imagen')->store('public'),
+                "noticia_descripcion"=>$request->get('noticia_descripcion')
+            ]);
+        }else{
+            $noticia->update([
+                "noticia_titulo"=>$request->get('noticia_titulo'),
+                "noticia_fecha_publicacion"=>Carbon::parse($request->get('noticia_fecha_publicacion'))->format('Y-m-d H:i:s'),
+                "noticia_descripcion"=>$request->get('noticia_descripcion')
+            ]);
+        }
+        $noticia->categorias()->sync($request->noticia_categorias);
+        return redirect()->route('noticia.index');
     }
 
     /**

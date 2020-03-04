@@ -49,7 +49,8 @@
                               <th>Codigo</th>
                               <th>Foto</th>
                               <th>Titulo</th>
-                              <th>Descripcion</th>                              
+                              <th>Descripcion</th>
+                              <th>Categorias</th>                            
                               <th>Fecha Registro</th>
                               <th>Usuario Registro</th>
                               <th>Acciones</th>
@@ -62,6 +63,9 @@
                               <td><img src="{{Storage::url($noticia->noticia_imagen)}}" width="50" height="50" ></td>
                               <td>{{$noticia->noticia_titulo}}</td>
                               <td>{{$noticia->noticia_descripcion}}</td>
+                              <td>
+                                {{$noticia->categorias->pluck('categoria_nombre')->implode(',')}}
+                              </td>
                               <td>{{$noticia->created_at}}</td>
                               <td>{{$noticia->updated_at}}</td>
                               <td>

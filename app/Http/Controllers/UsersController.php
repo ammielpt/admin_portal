@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\Rol;
 
 class UsersController extends Controller
 {
@@ -16,7 +17,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users=User::all();
+        $users=User::all();        
         return view('users.index', compact('users'));
     }
 
@@ -29,7 +30,8 @@ class UsersController extends Controller
     {
         //
         $user= new User();
-        return view('users.form_nuevo', compact('user'));
+        $roles= Rol::all();
+        return view('users.form_nuevo', compact('user', 'roles'));
     }
 
     /**
@@ -80,7 +82,8 @@ class UsersController extends Controller
     {
         //
         $user= User::findOrFail($id);
-        return view('users.form_editar',compact('user'));
+        $roles= Rol::all();
+        return view('users.form_editar',compact('user', 'roles'));
     }
 
     /**

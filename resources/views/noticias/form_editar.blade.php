@@ -47,7 +47,7 @@
                   <div class="x_content">
                     <br />
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"
-                    method="POST" enctype="multipart/form-data" action="{{route('usuario.update',$noticia->id)}}">
+                    method="POST" enctype="multipart/form-data" action="{{route('noticia.update',$noticia->id)}}">
                      {!!method_field('PUT')!!}
                       @csrf
                       @include('noticias.form')
@@ -110,10 +110,15 @@
     <!-- Custom Theme Scripts -->
     <script src="{{asset('js/gentelella-custom.js')}}"></script> 
     <script>
+    $(document).ready(function(){
        // Add the following code if you want the name of the file appear on select
       $(".custom-file-input").on("change", function() {
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
       });
+      $('#single_cal1').datepicker({
+        format: 'dd/mm/yyyy'
+      });
+    });
 </script>
     @endsection

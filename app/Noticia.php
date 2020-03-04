@@ -18,6 +18,6 @@ class Noticia extends Model
     ];
 
     public function categorias(){
-        return $this->belongsToMany(Categoria::class, 'noticia_categoria');
+        return $this->belongsToMany(Categoria::class, 'noticia_categoria', 'id_noticia', 'id_categoria');
     }
 }

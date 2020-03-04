@@ -11,7 +11,11 @@
   <div class="col-10 col-md-4 ">
     <select class="form-control selectpicker" name="noticia_categorias[]" required="required" title="Seleccionar tags" data-live-search="true" multiple>
       @foreach ($categorias as $categoria)
-      <option value="{{$categoria->id}}">{{$categoria->categoria_nombre}}</option>
+      @if($noticia->categorias->contains('id', $categoria->id))
+          <option value="{{$categoria->id}}" selected>{{$categoria->categoria_nombre}}</option>
+      @else
+          <option value="{{$categoria->id}}">{{$categoria->categoria_nombre}}</option>
+      @endif
       @endforeach
     </select>
   </div>
@@ -21,7 +25,7 @@
       <div class="controls">
         <div class="xdisplay_inputx form-group row has-feedback">
           <input type="text" class="form-control has-feedback-left" id="single_cal1"
-          name="noticia_fecha_publicacion" aria-describedby="inputSuccess2Status" value="{{old('noticia_fecha_publicacion',$noticia->noticia_fecha_publicacion)}}">
+          name="noticia_fecha_publicacion" aria-describedby="inputSuccess2Status" value="{{old('noticia_fecha_publicacion', \Carbon\Carbon::parse($noticia->noticia_fecha_publicacion)->format('d/m/Y'))}}">
           <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
           <span id="inputSuccess2Status" class="sr-only">(success)</span>
         </div>

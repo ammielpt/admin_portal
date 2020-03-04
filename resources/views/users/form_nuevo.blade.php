@@ -20,6 +20,8 @@
     <link href="{{asset('css/bootstrap-daterangepicker.css')}}" rel="stylesheet">
      <!-- bootstrap-datetimepicker -->
     <link href="{{asset('css/bootstrap-datetimepicker.css')}}" rel="stylesheet">
+     <!-- Custom Theme Style -->
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="{{asset('css/gentelella-custom.css')}}" rel="stylesheet">
     @endsection
@@ -105,6 +107,7 @@
     <!-- validator -->
     <script src="{{asset('js/validator.js')}}"></script>
     <!-- Custom Theme Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     <script src="{{asset('js/gentelella-custom.js')}}"></script> 
     <script>
        // Add the following code if you want the name of the file appear on select
