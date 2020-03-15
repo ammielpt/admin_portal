@@ -58,6 +58,7 @@ class UsersController extends Controller
         if($request->hasFile('file_avatar')){
             $user->avatar=$request->file('file_avatar')->store('public');
         }
+        $user->save();
         return redirect()->route('usuario.index');
     }
 
