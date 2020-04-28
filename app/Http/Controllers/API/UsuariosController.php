@@ -1,13 +1,13 @@
 <?php
-   
+
 namespace App\Http\Controllers\API;
-   
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\User;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\Product as ProductResource;
-   
+
 class UsuariosController extends BaseController
 {
     /**
@@ -29,17 +29,10 @@ class UsuariosController extends BaseController
     public function store(Request $request)
     {
         $input = $request->all();
-        $validator = Validator::make([
-            'name' => 'required',
-            'email' => 'required'
-        ]);
-        if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());       
-        }
         $usuario = User::create($input);
         return $this->sendResponse($usuario, 'Usuario creado correctamente.');
-    } 
-   
+    }
+
     /**
      * Display the specified resource.
      *
@@ -49,15 +42,15 @@ class UsuariosController extends BaseController
     public function show($id)
     {
         /*$product = Product::find($id);
-  
+
         if (is_null($product)) {
             return $this->sendError('Product not found.');
         }
-   
+
         return $this->sendResponse(new ProductResource($product), 'Product retrieved successfully.');
         */
     }
-    
+
     /**
      * Update the specified resource in storage.
      *
@@ -68,24 +61,24 @@ class UsuariosController extends BaseController
     public function update(Request $request, User $usuario)
     {
         $input = $request->all();
-   
+
         /*$validator = Validator::make($input, [
             'name' => 'required',
             'detail' => 'required'
         ]);
-   
+
         if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());       
+            return $this->sendError('Validation Error.', $validator->errors());
         }
-   
+
         $product->name = $input['name'];
         $product->detail = $input['detail'];
         $product->save();
-   
+
         return $this->sendResponse(new ProductResource($product), 'Product updated successfully.');
         */
     }
-   
+
     /**
      * Remove the specified resource from storage.
      *
@@ -95,7 +88,7 @@ class UsuariosController extends BaseController
     public function destroy(User $usuario)
     {
         $usuario->delete();
-   
+
         return $this->sendResponse([], 'Usuario deleted successfully.');
     }
 }

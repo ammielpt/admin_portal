@@ -142,5 +142,5 @@
   <script src="{{asset('js/pdfmake.min.js')}}"></script>
   <script src="{{asset('js/vfs_fonts.js')}}"></script>
       <!-- Custom Theme Scripts -->
-    <script src="{{asset('js/gentelella-custom.js')}}"></script>        
+  <script src="{{asset('js/gentelella-custom.js')}}"></script>        
 @endsection

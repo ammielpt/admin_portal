@@ -15,4 +15,8 @@ class Rol extends Model
     protected $fillable = [
         'rol_name', 'rol_key_name', 'rol_description'
     ];
+
+    public function usuarios(){
+        return $this->belongsToMany(User::class, 'usuario_rol', 'id_rol', 'id_usuario');
+    }
 }

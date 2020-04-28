@@ -44,9 +44,13 @@
   @foreach ($roles as $rol)
   <div class="col-md-2 col-sm-12">
   <label class="col-form-label col-md-6 col-sm-2 col-3 label-align" for="last-name">{{$rol->rol_name}}</label>
-  <div class="col-md-3 col-sm-2 col-2">
-      <input type="checkbox" id="{{$rol->id}}" value="{{config('constants.condicion.activo')}}" name="categoria_activo" data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger">
-  </div>
+    <div class="col-md-3 col-sm-2 col-2">
+      @if($user->roles->contains('rol_name', $rol->rol_name))
+      <input type="checkbox" id="{{$rol->id}}" value="{{$rol->id}}" name="usuarios_roles[]" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger">
+      @else
+      <input type="checkbox" id="{{$rol->id}}" value="{{$rol->id}}" name="usuarios_roles[]" data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger">
+      @endif
+    </div>
   </div>
   @endforeach
 </div>

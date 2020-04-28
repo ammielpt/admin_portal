@@ -50,7 +50,8 @@
                           <th>Codigo</th>
                           <th>Foto</th>
                           <th>Nombre</th>
-                          <th>Email</th>                             
+                          <th>Email</th> 
+                          <th>Roles</th>                            
                           <th>Fecha Registro</th>
                           <th>Actualiza Registro</th>
                           <th>Acciones</th>
@@ -63,6 +64,7 @@
                           <td><img src="{{Storage::url($user->avatar)}}" class="rounded-circle" width="50" height="50" ></td>
                           <td>{{$user->name}}</td>
                           <td>{{$user->email}}</td>
+                          <td>{{$user->roles->pluck('rol_name')->implode(',')}}</td>
                           <td>{{$user->created_at}}</td>
                           <td>{{$user->updated_at}}</td>
                           <td>
@@ -103,8 +105,6 @@
 </div>
 </div>
 </div>
-
-
       @endsection
       @section('dependantsfooter')
       <!-- jQuery -->

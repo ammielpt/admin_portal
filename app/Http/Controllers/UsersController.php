@@ -17,7 +17,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users=User::all();        
+        $users = User::all();
         return view('users.index', compact('users'));
     }
 
@@ -29,8 +29,8 @@ class UsersController extends Controller
     public function create()
     {
         //
-        $user= new User();
-        $roles= Rol::all();
+        $user = new User();
+        $roles = Rol::all();
         return view('users.form_nuevo', compact('user', 'roles'));
     }
 
@@ -43,22 +43,23 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //
-        $user= (new User)->fill([
-            'name'=>$request->get('user_name'),
-            'email'=>$request->get('user_email'),
-            'password'=>Hash::make($request->get('user_pass')),
-            'role_id'=>1
+        $user = (new User)->fill([
+            'name' => $request->get('user_name'),
+            'email' => $request->get('user_email'),
+            'password' => Hash::make($request->get('user_pass')),
+            'role_id' => 1
         ]);
         request()->validate([
-            "file_avatar"=>"image",
+            "file_avatar" => "image",
             "user_name" => "required",
             "user_email" => "required|email",
-            "user_pass"=>"required|confirmed"
+            "user_pass" => "required|confirmed"
         ]);
-        if($request->hasFile('file_avatar')){
-            $user->avatar=$request->file('file_avatar')->store('public');
+        if ($request->hasFile('file_avatar')) {
+            $user->avatar = $request->file('file_avatar')->store('public');
         }
         $user->save();
+        $user->roles()->attach($request->get('usuarios_roles'));
         return redirect()->route('usuario.index');
     }
 
@@ -82,9 +83,9 @@ class UsersController extends Controller
     public function edit($id)
     {
         //
-        $user= User::findOrFail($id);
-        $roles= Rol::all();
-        return view('users.form_editar',compact('user', 'roles'));
+        $user = User::findOrFail($id);
+        $roles = Rol::all();
+        return view('users.form_editar', compact('user', 'roles'));
     }
 
     /**
@@ -101,17 +102,18 @@ class UsersController extends Controller
         request()->validate([
             "user_name" => "required",
             "user_email" => "required|email",
-            "user_pass"=>"required|confirmed"
+            "user_pass" => "required|confirmed"
         ]);
-        if($request->hasFile('file_avatar')){
-            $user->avatar=$request->file('file_avatar')->store('public');
+        if ($request->hasFile('file_avatar')) {
+            $user->avatar = $request->file('file_avatar')->store('public');
         }
         $user->update([
-            'name'=>$request->get('user_name'),
-            'email'=>$request->get('user_email'),
+            'name' => $request->get('user_name'),
+            'email' => $request->get('user_email'),
             //'password'=>Hash::make($request->get('user_pass')),
-            'role_id'=>1
+            'role_id' => 1
         ]);
+        $user->roles()->sync($request->get('usuarios_roles'));
         return redirect()->route('usuario.index');
     }
 
