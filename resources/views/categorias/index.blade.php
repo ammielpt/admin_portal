@@ -16,7 +16,7 @@
   <link href="{{asset('css/responsive.bootstrap.css')}}" rel="stylesheet">
   <link href="{{asset('css/scroller.bootstrap.css')}}" rel="stylesheet">
   <!-- Custom Theme Style -->
-    <link href="{{asset('css/gentelella-custom.css')}}" rel="stylesheet">    
+    <link href="{{asset('css/gentelella-custom.css')}}" rel="stylesheet">
 @endsection
 @section('content')
 
@@ -50,7 +50,7 @@
                           <th>Codigo</th>
                           <th>Nombre</th>
                           <th>Descripcion</th>
-                          <th>Activo</th>                             
+                          <th>Activo</th>
                           <th>Fecha Registro</th>
                           <th>Actualiza Registro</th>
                           <th>Acciones</th>
@@ -119,7 +119,7 @@
         alert("Eliminar el registro?");
       });
     });
-    </script> 
+    </script>
   <!-- Bootstrap -->
     <script src="{{asset('js/bootstrap.bundle.min.js') }}"></script>
   <!-- FastClick -->
@@ -145,5 +145,5 @@
   <script src="{{asset('js/pdfmake.min.js')}}"></script>
   <script src="{{asset('js/vfs_fonts.js')}}"></script>
       <!-- Custom Theme Scripts -->
-    <script src="{{asset('js/gentelella-custom.js')}}"></script>        
+    <script src="{{asset('js/gentelella-custom.js')}}"></script>
 @endsection

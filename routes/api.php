@@ -20,4 +20,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/listarusuarios', 'API\UsuariosController@index');
 
+Route::get('/buscarusuario/{nombre}', 'API\UsuariosController@buscarUsuario');
+
 Route::post('/crearusuario', 'API\UsuariosController@store');
+
+Route::put('/actualizarusuario/{id}', 'API\UsuariosController@update');
+
+//Route::put('/eliminarusuario/{id}', 'API\UsuariosController@destroy');
+
+Route::put('/activarusuario/{id}', 'API\UsuariosController@activar');

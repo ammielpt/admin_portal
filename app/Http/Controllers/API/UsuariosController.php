@@ -33,6 +33,19 @@ class UsuariosController extends BaseController
         return $this->sendResponse($usuario, 'Usuario creado correctamente.');
     }
 
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function buscarUsuario($nombre)
+    {
+        $users = User::where('name','LIKE','%'.$nombre.'%')->get();
+        return $this->sendResponse($users, 'Usuarios recuperados satisfactoriamente.');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -58,25 +71,30 @@ class UsuariosController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $usuario)
+    public function update(Request $request, $id)
     {
-        $input = $request->all();
-
-        /*$validator = Validator::make($input, [
-            'name' => 'required',
-            'detail' => 'required'
+        $user = User::findOrFail($id);
+        $user->update([
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
         ]);
+        return $this->sendResponse($user, 'Usuario actualizado correctamente.');
+    }
 
-        if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());
-        }
-
-        $product->name = $input['name'];
-        $product->detail = $input['detail'];
-        $product->save();
-
-        return $this->sendResponse(new ProductResource($product), 'Product updated successfully.');
-        */
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function activar(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->update([
+            'activo' => $request->get('activo')
+        ]);
+        return $this->sendResponse($user, 'Usuario actualizado correctamente.');
     }
 
     /**
@@ -88,7 +106,6 @@ class UsuariosController extends BaseController
     public function destroy(User $usuario)
     {
         $usuario->delete();
-
         return $this->sendResponse([], 'Usuario deleted successfully.');
     }
 }

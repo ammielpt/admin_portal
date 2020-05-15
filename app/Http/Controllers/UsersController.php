@@ -42,18 +42,21 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (!$request->user_activo)
+            $request->merge(['user_activo' => config('constants.condicion.inactivo')]);
         $user = (new User)->fill([
             'name' => $request->get('user_name'),
             'email' => $request->get('user_email'),
             'password' => Hash::make($request->get('user_pass')),
-            'role_id' => 1
+            'role_id' => 1,
+            'activo'=>$request->get('user_activo')
         ]);
         request()->validate([
             "file_avatar" => "image",
             "user_name" => "required",
             "user_email" => "required|email",
-            "user_pass" => "required|confirmed"
+            "user_pass" => "required|confirmed",
+            "user_activo"=>"required"
         ]);
         if ($request->hasFile('file_avatar')) {
             $user->avatar = $request->file('file_avatar')->store('public');
@@ -102,16 +105,21 @@ class UsersController extends Controller
         request()->validate([
             "user_name" => "required",
             "user_email" => "required|email",
-            "user_pass" => "required|confirmed"
+            "user_pass" => "required|confirmed",
+            "user_activo" => "required"
         ]);
         if ($request->hasFile('file_avatar')) {
             $user->avatar = $request->file('file_avatar')->store('public');
         }
+        if(!$request->user_activo)
+            $request->merge(['user_activo' => config('constants.condicion.inactivo')]);
         $user->update([
             'name' => $request->get('user_name'),
             'email' => $request->get('user_email'),
             //'password'=>Hash::make($request->get('user_pass')),
-            'role_id' => 1
+            'role_id' => 1,
+            'activo'=>$request->get('user_activo')
+
         ]);
         $user->roles()->sync($request->get('usuarios_roles'));
         return redirect()->route('usuario.index');
