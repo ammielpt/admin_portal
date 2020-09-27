@@ -3,10 +3,13 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+//Añadimos la clase JWTSubject
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+//Añadimos la implementación de JWT en nuestro modelo
+class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
@@ -36,7 +39,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function roles(){
+    public function roles()
+    {
         return $this->belongsToMany(Rol::class, 'usuario_rol', 'id_usuario', 'id_rol');
+    }
+
+    /*
+            Añadiremos estos dos métodos
+    */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 }

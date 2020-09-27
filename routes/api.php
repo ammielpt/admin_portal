@@ -17,6 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+// estas rutas se pueden acceder sin proveer de un token válido.
+Route::post('/login', 'API\AuthController@login');
+Route::post('/register', 'API\AuthController@register');
+
+Route::post('/recuperar', 'API\AuthController@getAuthUser');
+// estas rutas requiren de un token válido para poder accederse.
+Route::post('/logout', 'API\AuthController@logout');
+
+/*Route::group(['middleware' => 'auth.jwt'], function () {
+Route::post('/logout', 'API\AuthController@logout');
+});*/
 
 Route::get('/listarusuarios', 'API\UsuariosController@index');
 
